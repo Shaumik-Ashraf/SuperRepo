@@ -1,11 +1,12 @@
-## SuperRepo
+# SuperRepo
 
-# Description
+## Description
 Contains java classes: Hexadecimal, Binary, SuperArray
 Contains java interface: Comparable (custom) 
 
-#TODO
+## To Do 
 Add classes
 Implement Exception throws
 Create functions: linSearch(), isSorted()
+
 
