@@ -1,5 +1,7 @@
 # SuperRepo
 
+## Note: still has bugs :cry:
+
 ## Description
  - Contains java classes: Hexadecimal, Binary, Rational, SuperArray
  - Contains java interface: Comparable (custom) 
