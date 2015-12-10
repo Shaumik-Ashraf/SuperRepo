@@ -11,9 +11,10 @@
 
 ## Functionality
  - Stuff
- - 
+  
 
 ## Authors
  - Shaumik
+
 #### Special Mention
  - Sadia Azmine
