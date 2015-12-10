@@ -1,4 +1,7 @@
-/* 
+//Rational class
+//class for Rational number datatype
+
+/* Originally From:
    Team a_Rational_Interface - Shaumik Ashraf, Sadia Azmine
    APCS1 pd9
    HW41 -- In America, the Driver Sits on the Left
@@ -109,8 +112,11 @@ public class Rational implements Comparable {
     //DEFINE compareTo method from Comparable interface HERE
     public int compareTo(Object o){
         
-        if( !(o instanceof Rational) ) {
-            return -2; //Returns -2 if Object o is not of class Rational 
+        if( o==NULL ) {
+        	throw new NullPointerException();
+        }
+        else if( !(o instanceof Rational) ) {
+            throw new ClassCastException("Error : compareTo() - other not of class Rational\n"); 
         }
         else if ((this.getP() * ((Rational)o).getQ()) == (((Rational)o).getP() * this.getQ()))  {
 	        return 0; //Returns 0 if the two numbers are equal
@@ -126,40 +132,14 @@ public class Rational implements Comparable {
     
     //////////////////////     PHASE 4     ///////////////////
     public boolean equals( Object a ) {
- 
-	//First, check for aliasing.
-	boolean retVal = this == a;
- 
-	//Next, if this and input Object are different objects,
-        if ( !retVal ) {
- 
-	    //...check to see if input Object is a Rational
-	    // Note that we reduce aliases because we don't actually want the original rationals to simplify
-	    if (a instanceof Rational) {
-		// Checks for same sign (positive or negative)
-		boolean b1 = ((Rational)a).floatValue() > 0;
-		boolean b2 = this.floatValue() > 0;
-		if (!(b1 ^ b2)){
-		    Rational _a = new Rational(((Rational)a).p,((Rational)a).q);
-		    Rational _this = new Rational(this.p,this.q);
-		    _a.reduce();
-		    _this.reduce();
-			
-		    //...and that its state variables match those of this Tile
-		    retVal = (_this.getP() == _a.getP()) && (_this.getQ() == _a.getQ());
-		}
-	    }				     
+	
+	try {
+		return( this==a || this.compareTo(a)==0 );
+	} catch(Exception e) {
+		throw e;
 	}
-	return retVal;
+	
     }
- 
-    /*
-    public interface Comparable {
-        int compareTo(Object o);
-        
-        //no, just rewrite the compareTo from phase 3!
-    }
-    */
   
     //main method for testing purposes
     public static void main(String[] args){
