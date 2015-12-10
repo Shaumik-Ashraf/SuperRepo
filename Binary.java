@@ -1,6 +1,9 @@
-//skeleton file for class Binary
+//class Binary
+/*
+Create class for base-2 numbers
+*/
 
-public class Binary {
+public class Binary implements Comparable {
 
     private int _decNum;
     private String _binNum;
@@ -12,7 +15,6 @@ public class Binary {
       post: initializes _decNum to 0, _binNum to "0"
       =====================================*/
     public Binary() { 
-	/****** YOUR IMPLEMENTATION HURRR ******/
 	_decNum = 0;
 	_binNum = "0";
     }
@@ -74,7 +76,7 @@ public class Binary {
       decToBin(14) -> "1110"
       =====================================*/
     public static String decToBin( int n ) {
-	/****** YOUR IMPLEMENTATION HURRR ******/
+    	
 	String retStr = "";
 	int rem = 0;
 	while (n != 0) {
@@ -97,7 +99,7 @@ public class Binary {
       decToBinR(14) -> "1110"
       =====================================*/
     public static String decToBinR( int n ) { 
-	/****** YOUR IMPLEMENTATION HURRR ******/
+	
 	String retStr = "";
 	int rem = 0;
 	if (n == 0) {
@@ -123,7 +125,7 @@ public class Binary {
       binToDec("1110") -> 14
       =====================================*/
     public static int binToDec(String s) {
-	/****** YOUR IMPLEMENTATION HURRR ******/
+	
 	int sum = 0;
 	for (int x = 0; x < s.length() - 1; x++) {
 	    sum += Integer.parseInt(s.substring(x, x+1)) * (Math.pow(2, s.length()-x));
@@ -144,7 +146,7 @@ public class Binary {
       binToDecR("1110") -> 14
       =====================================*/
     public static int binToDecR( String s ) { 
-	/****** YOUR IMPLEMENTATION HURRR ******/
+	
 	int sum = 0;
 	if (s.length() == 0) {
 	    sum += 0;
@@ -164,22 +166,13 @@ public class Binary {
       Object), or if this and other represent equal binary values
       =============================================*/
     public boolean equals( Object other ) { 
-	/****** YOUR IMPLEMENTATION HURRR ******/
-	 
-	//First, check for aliasing.
-	boolean retVal = this == other;
- 
-	//Next, if this and input Object are different objects,
-        if ( !retVal )
- 
-	    //...check to see if input Object is a Tile
-	    retVal = other instanceof Binary
- 
-		//...and that its state variables match those of this Tile
-		&& this._binNum.equals(((Binary)other)._binNum)
-		&& this._decNum ==(((Binary) other)._decNum);
- 
-	return retVal;
+	
+	try {
+		return( this==other || this.compareTo(other)==0 );
+	} catch(Exception e) {
+		throw e;
+	}
+	
     }
 
 
@@ -190,9 +183,13 @@ public class Binary {
       negative integer if this<input, positive integer otherwise
       =============================================*/
     public int compareTo( Object other ) {
-	/****** YOUR IMPLEMENTATION HURRR ******/
+	
 	int diff = 0;
-	if (other instanceof Binary) {
+	
+	if(other == NULL ) {
+		throw new NullPointerException();
+	}
+	else if (other instanceof Binary) {
 	    if (this.equals(other)) {
 		diff = 0;
 	    }
