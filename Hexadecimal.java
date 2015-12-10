@@ -1,13 +1,14 @@
-/*
+//Hexadecimal class 
+/*NOTE: All hexadecimal digits in UPPER case ONLY*/
+
+/* Originally From:
 Shaumik Ashraf, Sadia Azmine
 APCS1 pd9
 HW 44 -- This or That or Fourteen Other Things
 2015-12-08
 */
-//Hexadecimal class 
-/*NOTE: All hexadecimal digits in UPPER case ONLY*/
 
-public class Hexadecimal {
+public class Hexadecimal implements Comparable {
     
     //Vars~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     private final static String HEXDIGITS = "0123456789ABCDEF";
@@ -51,7 +52,6 @@ public class Hexadecimal {
     
     //Static Methods~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    //THIS METHOD FAILS!!!
     //converts hexadecimal number as string to int and returns it, assumes valid String arguement
     public static int hexToDec( String s ) {
         
@@ -114,14 +114,14 @@ public class Hexadecimal {
       otherwise returns false
     */
     public boolean equals( Object other ) { 
-    	 
-    	//First, check for aliasing.
-    	boolean retVal = this == other;
-     
-    	//Next, use compareTo(),
-        retVal = this.compareTo(other)==0;
-     
-    	return retVal;
+    	
+    	//check for aliasing and use compareTo, "pass on" exception if any
+    	try {
+    		return( this==other || this.compareTo(other)==0 );
+    	} catch(Exception e) {
+    		throw e;
+    	}
+	
     }
 
     /*compares calling Hexadecimal to argument object
@@ -132,7 +132,10 @@ public class Hexadecimal {
     */
     public int compareTo(Object other) {
         
-        if( !(other instanceof Hexadecimal) ) {
+        if( other==NULL ) {
+            throw new NullPointerException();
+        }
+        else if( !(other instanceof Hexadecimal) ) {
             throw new ClassCastException("Error : compareTo() - invalid arguement, non-Hexadecimal object\n");
         }
         else if( this._decNum == ((Hexadecimal)other)._decNum ) {
