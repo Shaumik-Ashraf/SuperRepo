@@ -1,4 +1,6 @@
-/*
+//class SuperArray, now implemented with Comparable Powers!
+
+/* Originally From:
  Team BatArray - Shaumik Ashraf, Sadia Azmine
  APCS1 - pd9
  HW#42 - Array of Titanium
@@ -21,9 +23,12 @@
  *  add item (at end)
  *  insert item
  *  remove item (while maintaining "left-justification")
+ * 
+ * Implements functionality:
+ *  comparable
  *****************************/
 
-public class SuperArray implements ListInt {
+public class SuperArray implements ListInt implements comparable {
  
     //~~~~~INSTANCE VARS~~~~~
     //underlying container, or "core" of this data structure:
@@ -140,6 +145,35 @@ public class SuperArray implements ListInt {
         return _size;
     }
 
+    //~~~~~~~~~~~~~~~~~~Comparable implementations(...)~~~~~~~~~~~~~~~
+
+    public int linSearch(Comparable o) {
+        
+        try {
+            for(int i=0; i<_size; i++) {
+            	if( o.(_data[i])==0 ) {
+            		return(i);
+            	}
+            }
+        } catch(Exception e) {
+            System.err.println(e);
+        }
+        
+    }
+    
+    public boolean isSorted() {
+        
+        boolean rb = true; //return boolean value
+        
+        for(int i=0; i<_size; i++) {
+        	for(int j=i; i<_size; j++) {
+        		rb = (rb && (_data[i].compareTo(_data[j])>0));
+        	}
+        }
+        
+        return(rb);
+        
+    }
 
     //main method for testing
     public static void main( String[] args ) 
