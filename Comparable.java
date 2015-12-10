@@ -1,4 +1,7 @@
-/*
+//Comparable interface
+//provides methods: compareTo(), 
+
+/* Originally From:
     Team a_Rational_Interface - Shaumik Ashraf, Sadia Azmine
     APCS1 pd9
     HW41 -- In America, the Driver Sits on the Left
@@ -8,8 +11,5 @@
 public interface Comparable {
     
     public int compareTo(Object o);
-    //we don't need to define anything
-    //the method should be defined in Rational.java
-    
     
 }
