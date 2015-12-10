@@ -10,4 +10,10 @@
  - write functionality
 
 ## Functionality
+ - Stuff
+ - 
 
+## Authors
+ - Shaumik
+ *Special Mention*
+ - Sadia Azmine
