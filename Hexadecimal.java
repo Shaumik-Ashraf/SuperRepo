@@ -124,19 +124,7 @@ public class Hexadecimal implements Comparable {
 	
     }
 
-    /*compares calling Hexadecimal to argument object
-      if arguement object is not of class Hexadecimal an Exception is thrown
-      if calling object is equal arguemnt object then 0 is returned
-      if calling object is less than arguemnt object then -1 is returned
-      if calling object is greater than arguemnt object then 1 is returned
-    */
-    public int compareTo(Object other) {
-        
-        if( other==NULL ) {
-            throw new NullPointerException();
-        }
-        else if( !(other instanceof Hexadecimal) ) {
-            throw new ClassCastException("Error : compareTo() - invalid arguement, non-Hexadecimal object\n");
+    /*compares calling Hexadecimal */
         }
         else if( this._decNum == ((Hexadecimal)other)._decNum ) {
             return(0);
@@ -166,7 +154,7 @@ public class Hexadecimal implements Comparable {
         //Initialize Hexadecimal instances and test constructors
         Hexadecimal a = new Hexadecimal();
         Hexadecimal b = new Hexadecimal( 255 );
-        Hexadecimal c = new Hexadecimal( "1A32" ); //this constructor fails!!
+        Hexadecimal c = new Hexadecimal( "1A32" );
         
         //print (also tests toString())
         System.out.println("Testing constructors....");

@@ -158,7 +158,11 @@ public class Binary implements Comparable {
 	return sum;
     }
 
-
+    //returns Binary obj's value as int primitive, also serves as accessor
+    public int intValue() {
+	return( _decNum );
+    }
+    
     /*=============================================
       boolean equals(Object) -- tells whether 2 Objs are equivalent
       pre:  other is an instance of class Binary
@@ -186,11 +190,11 @@ public class Binary implements Comparable {
 	
 	int diff = 0;
 	
-	if(other == NULL ) {
+	if(other == null) {
 		throw new NullPointerException();
 	}
 	else if (other instanceof Binary) {
-	    if (this.equals(other)) {
+	    if (this._decNum == ((Binary)other).intValue() ) {
 		diff = 0;
 	    }
 	    if (this._decNum >((Binary)other)._decNum) {

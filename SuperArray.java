@@ -28,7 +28,7 @@
  *  comparable
  *****************************/
 
-public class SuperArray implements ListInt implements comparable {
+public class SuperArray implements comparable {
  
     //~~~~~INSTANCE VARS~~~~~
     //underlying container, or "core" of this data structure:
@@ -42,7 +42,7 @@ public class SuperArray implements ListInt implements comparable {
 
 		
     //~~~~~METHODS~~~~~
-    //default constructor â€“ initializes 10-item array
+    //default constructor initializes 10-item array
     public SuperArray() 
     { 
 	_data = new int[10];
@@ -151,7 +151,7 @@ public class SuperArray implements ListInt implements comparable {
         
         try {
             for(int i=0; i<_size; i++) {
-            	if( o.(_data[i])==0 ) {
+            	if( o.compareTo( this._data )==0 ) {
             		return(i);
             	}
             }
@@ -249,6 +249,10 @@ public class SuperArray implements ListInt implements comparable {
 	  System.out.println(BatmanArray);
 		/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+	  Comparable Comps = new SuperArray();
+	  
+	  
 	//*****INSERT ANY ADDITIONAL TEST CALLS HERE*****
 
     }//end main
